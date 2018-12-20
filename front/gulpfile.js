@@ -9,6 +9,7 @@ var bs = require("browser-sync").create();
 
 
 var path = {
+    'html': './templates/**/',
     'css': './src/css/',
     'js': './src/js/',
     'images': './src/images/',
@@ -16,6 +17,13 @@ var path = {
     'js_dist': './dist/js/',
     'images_dist': './dist/images/',
 };
+//定义一个处理html的任务；
+
+gulp.task('html', function () {
+    gulp.src(path.html + '*.html')
+        .pipe(bs.stream())
+});
+
 
 //定义一个css任务；
 gulp.task('css', function () {
@@ -45,6 +53,7 @@ gulp.task('images', function () {
 
 //定义监听文件修改的任务；
 gulp.task('watch', function () {
+    gulp.watch(path.html + '*.html', ['html']);
     gulp.watch(path.css + '*.css', ['css']);
     gulp.watch(path.js + '*.js', ['js']);
     gulp.watch(path.images + '*.*', ['images']);
