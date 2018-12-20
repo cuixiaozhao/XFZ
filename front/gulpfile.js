@@ -23,6 +23,7 @@ gulp.task('css', function () {
         .pipe(cssnano())
         .pipe(rename({"suffix": ".min"}))
         .pipe(gulp.dest(path.css_dist))
+        .pipe(bs.stream())
 });
 
 //定义一个处理js的任务；
@@ -31,6 +32,7 @@ gulp.task('js', function () {
         .pipe(uglify())
         .pipe(rename({"suffix": ".min"}))
         .pipe(gulp.dest(path.js_dist))
+        .pipe(bs.stream())
 });
 
 //定义一个处理images的任务；
@@ -38,6 +40,7 @@ gulp.task('images', function () {
     gulp.src(path.images + '*.*')
         .pipe(cache(imagemin()))
         .pipe(gulp.dest(path.images_dist))
+        .pipe(bs.stream())
 });
 
 //定义监听文件修改的任务；
