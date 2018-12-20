@@ -7,7 +7,6 @@ var cache = require("gulp-cache");
 var imagemin = require("gulp-imagemin");
 var bs = require("browser-sync").create();
 
-
 var path = {
     'html': './templates/**/',
     'css': './src/css/',
@@ -17,13 +16,12 @@ var path = {
     'js_dist': './dist/js/',
     'images_dist': './dist/images/',
 };
-//定义一个处理html的任务；
 
+//定义一个处理html的任务；
 gulp.task('html', function () {
     gulp.src(path.html + '*.html')
         .pipe(bs.stream())
 });
-
 
 //定义一个css任务；
 gulp.task('css', function () {
