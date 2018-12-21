@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.news',
     'apps.cms',
+    'apps.xfzauth',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+# 定义AUTH_USER_MODEL
+AUTH_USER_MODEL = 'xfzauth.User'  # 注意，此处不需要使用apps.xfzauth.User
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 

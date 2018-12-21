@@ -21,4 +21,5 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('cms/', include('apps.cms.urls')),
     path('', include('apps.news.urls')),
+    path('account/', include('apps.xfzauth.urls'))
 ]
