@@ -25,7 +25,7 @@ SECRET_KEY = 'k%q5id1u4h%*d@e==39rz+j*joom-^o5uv71cfdm4ru*t95li9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.news',
+    'apps.cms',
 ]
 
 MIDDLEWARE = [
@@ -79,8 +80,12 @@ WSGI_APPLICATION = 'XFZ.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'XFZ',
+        'USER': 'root',
+        'PASSWORD': 'Tqtl911!@%*)',
+        'HOST': 'mysql.cuixiaozhao.com',
+        'PORT': '3306',
     }
 }
 
@@ -119,6 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
 # 配置好静态文件路径
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'front', 'dist')
