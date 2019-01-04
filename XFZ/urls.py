@@ -14,12 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 # from django.contrib import admin,不使用Django 自带的admin，后续自行开发！
-from django.urls import path
-from django.urls import include
+from django.urls import path, include
+from apps.news import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
+    path('', views.index, name='index'),  # 在主url中，导入views函数，指定首页的URL地址；
+    path('search/', views.search, name='search'),
+    path('news/', include('apps.news.urls')),
     path('cms/', include('apps.cms.urls')),
-    path('', include('apps.news.urls')),
     path('account/', include('apps.xfzauth.urls'))
 ]
